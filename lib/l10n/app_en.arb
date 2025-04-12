@@ -1,0 +1,67 @@
+{
+  "@@locale": "en",
+  "appTitle": "Example Mobile",
+  "@appTitle": {
+    "description": "The title of the application"
+  },
+  "welcomeMessage": "Welcome to Example Mobile",
+  "@welcomeMessage": {
+    "description": "Welcome message displayed on the home screen"
+  },
+  "login": "Login",
+  "@login": {
+    "description": "Login button text"
+  },
+  "successLogin": "Logged in successfully!",
+  "@successLogin": {
+    "description": "Success message displayed after successful login"
+  },
+  "logout": "Logout",
+  "@logout": {
+    "description": "Logout button text"
+  },
+  "email": "Email",
+  "@email": {
+    "description": "Email field label"
+  },
+  "password": "Password",
+  "@password": {
+    "description": "Password field label"
+  },
+  "forgotPassword": "Forgot Password?",
+  "@forgotPassword": {
+    "description": "Forgot password link text"
+  },
+  "register": "Register",
+  "@register": {
+    "description": "Register button text"
+  },
+  "settings": "Settings",
+  "@settings": {
+    "description": "Settings screen title"
+  },
+  "profile": "Profile",
+  "@profile": {
+    "description": "Profile screen title"
+  },
+  "darkMode": "Dark Mode",
+  "@darkMode": {
+    "description": "Dark mode setting label"
+  },
+  "language": "Language",
+  "@language": {
+    "description": "Language setting label"
+  },
+  "error": "Error",
+  "@error": {
+    "description": "Generic error message"
+  },
+  "networkError": "Network error. Please check your connection.",
+  "@networkError": {
+    "description": "Network error message"
+  },
+  "authError": "Authentication error. Please login again.",
+  "@authError": {
+    "description": "Authentication error message"
+  }
+}

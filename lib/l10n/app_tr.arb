@@ -1,0 +1,19 @@
+{
+  "@@locale": "tr",
+  "appTitle": "Example App",
+  "welcomeMessage": "Example App'e Hoş Geldiniz",
+  "login": "Giriş Yap",
+  "successLogin": "Giriş Başarılı!",
+  "logout": "Çıkış Yap",
+  "email": "E-posta",
+  "password": "Şifre",
+  "forgotPassword": "Şifremi Unuttum?",
+  "register": "Kayıt Ol",
+  "settings": "Ayarlar",
+  "profile": "Profil",
+  "darkMode": "Karanlık Mod",
+  "language": "Dil",
+  "error": "Hata",
+  "networkError": "Ağ hatası. Lütfen bağlantınızı kontrol edin.",
+  "authError": "Kimlik doğrulama hatası. Lütfen tekrar giriş yapın."
+}
