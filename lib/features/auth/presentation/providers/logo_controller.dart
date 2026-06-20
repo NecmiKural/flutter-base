@@ -4,7 +4,7 @@ import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 // import 'package:flutter_svg/flutter_svg.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:hooks_riverpod/legacy.dart';
 // import 'package:base_app/main.dart';
 // import 'package:base_app/models/backoffice_settings/backoffice_settings.dart';
 // import 'package:base_app/utils/variables.dart' as variables;

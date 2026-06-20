@@ -1,5 +1,6 @@
 import 'package:flutter_appauth/flutter_appauth.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:hooks_riverpod/legacy.dart';
 import 'package:base_app/core/logging/logger.dart';
 import 'package:base_app/core/storage/hive_service.dart';
 import 'package:base_app/features/auth/presentation/providers/provider.dart';

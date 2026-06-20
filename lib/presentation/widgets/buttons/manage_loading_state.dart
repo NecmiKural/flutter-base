@@ -49,7 +49,7 @@ mixin _ButtonLoadingState<T extends StatefulWidget> on State<T> {
     unawaited(
       showDialog(
         context: context,
-        barrierColor: Colors.black.withOpacity(0.2),
+        barrierColor: Colors.black.withValues(alpha: 0.2),
         barrierDismissible: false,
         builder: (context) {
           return const PopScope(

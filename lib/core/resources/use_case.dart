@@ -5,14 +5,14 @@
 /// implement this contract to ensure consistency and reusability.
 ///
 /// Type parameters:
-/// - `Type`: The type of the result produced by the use case.
+/// - `T`: The type of the result produced by the use case.
 /// - `Params`: The type of the parameters required to execute the use case.
 ///
 /// Methods:
-/// - `Future<Type> call(Params params)`: Executes the use case with the given
-///   parameters and returns a `Future` that completes with the result of type `Type`.
-abstract class UseCase<Type, Params> {
-  Future<Type> call(Params params);
+/// - `Future<T> call(Params params)`: Executes the use case with the given
+///   parameters and returns a `Future` that completes with the result of type `T`.
+abstract class UseCase<T, Params> {
+  Future<T> call(Params params);
 }
 
 /// A class representing an absence of parameters.

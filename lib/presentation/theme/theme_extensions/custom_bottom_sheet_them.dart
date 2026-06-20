@@ -23,7 +23,7 @@ class CustomBottomSheetTheme extends ThemeExtension<CustomBottomSheetTheme> {
   /// Example usage:
   /// ```dart
   /// ThemeData(
-  ///   extensions: <ThemeExtension<dynamic>>[
+  ///   extensions: [
   ///     CustomBottomSheetTheme(
   ///       shadowColor: Colors.black54,
   ///       handleColor: Colors.grey,
@@ -51,7 +51,7 @@ class CustomBottomSheetTheme extends ThemeExtension<CustomBottomSheetTheme> {
   /// Example usage:
   /// ```dart
   /// ThemeData(
-  ///   extensions: <ThemeExtension<dynamic>>[
+  ///   extensions: [
   ///     CustomBottomSheetTheme(
   ///       shadowColor: Colors.black54,
   ///       handleColor: Colors.grey,
@@ -59,6 +59,7 @@ class CustomBottomSheetTheme extends ThemeExtension<CustomBottomSheetTheme> {
   ///     ),
   ///   ],
   /// );
+  /// ```
   CustomBottomSheetTheme({
     this.shadowColor,
     this.handleColor,
