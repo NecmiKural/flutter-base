@@ -7,41 +7,36 @@ import 'package:base_app/features/auth/domain/usecases/perform_auth_use_case.dar
 import 'package:base_app/features/auth/presentation/providers/auth_view_model.dart';
 
 /// Dependency Injection
-final Provider<AuthService> _authServiceProvider = Provider.autoDispose<
-  AuthService
->((Ref ref) {
+///
+/// These providers are app-lifetime singletons. They use `ref.watch` (not
+/// `ref.read`) so each dependency is wired reactively and shares a single
+/// instance for as long as it is needed.
+final Provider<AuthService> _authServiceProvider = Provider<AuthService>((
+  Ref ref,
+) {
   return AuthService();
 });
 
 final Provider<AuthRepository> _authRepositoryProvider =
-    Provider.autoDispose<AuthRepository>((Ref ref) {
-      return AuthRepositoryImpl(
-        authService: ref.read<AuthService>(_authServiceProvider),
-      );
+    Provider<AuthRepository>((Ref ref) {
+      return AuthRepositoryImpl(authService: ref.watch(_authServiceProvider));
     });
 
 final Provider<PerformAuthUseCase> _performAuthProvider =
     Provider<PerformAuthUseCase>((Ref ref) {
-      return PerformAuthUseCase(
-        ref.read<AuthRepository>(_authRepositoryProvider),
-      );
+      return PerformAuthUseCase(ref.watch(_authRepositoryProvider));
     });
 
 /// ViewModel
 final ChangeNotifierProvider<AuthViewModel> authViewModelProvider =
     ChangeNotifierProvider<AuthViewModel>((Ref ref) {
       final authViewModel = AuthViewModel(
-        performAuthUseCase: ref.read<PerformAuthUseCase>(_performAuthProvider),
+        performAuthUseCase: ref.watch(_performAuthProvider),
       );
 
-      // Get the AuthService instance
-      final authService = ref.read<AuthService>(_authServiceProvider);
-
-      // Start listening to auth state changes
+      // Start listening to auth state changes.
+      final authService = ref.watch(_authServiceProvider);
       authViewModel.startListening(authService.authStateChanges());
-
-      // Remove autoDispose to prevent the ViewModel from being disposed
-      // prematurely. This ensures the ViewModel stays alive as long as needed.
 
       return authViewModel;
     });
