@@ -3,7 +3,7 @@
 
 Welcome to **Custom Flutter App Template** – a modern Flutter starter project built with a scalable architecture and designed for real-world apps.
 
-This template follows **Clean Architecture**, utilizes **Riverpod** for state management, integrates **Keycloak authentication via AppAuth**, and supports **Flutter's native localization system**.
+This template follows **Clean Architecture**, utilizes **Riverpod 3** (via `hooks_riverpod`) for state management, integrates **Keycloak authentication via AppAuth**, and supports **Flutter's native localization system**.
 
 ---
 
@@ -21,8 +21,8 @@ This template follows **Clean Architecture**, utilizes **Riverpod** for state ma
 - Uses Flutter’s built-in `intl` and `flutter_localizations`.  
 - Centralized `l10n.yaml` and `arb` files for easy language management.  
 
-✅ **State Management with Riverpod**  
-- Scalable, modular, and reactive state handling.  
+✅ **State Management with Riverpod 3**  
+- Scalable, modular, and reactive state handling via `hooks_riverpod`.  
 
 ✅ **Persistent Storage**  
 - Local storage using Hive.  
@@ -48,8 +48,8 @@ This template follows **Clean Architecture**, utilizes **Riverpod** for state ma
 
 Before getting started, ensure you have the following installed:
 
-- **Flutter SDK**: `3.7.2+`  
-- **Dart SDK**: Included with Flutter  
+- **Flutter SDK**: `3.27+` (tested on `3.44`)  
+- **Dart SDK**: `3.7+` (included with Flutter)  
 - **Keycloak Server**: For authentication (self-hosted or managed)  
 
 ---
@@ -85,38 +85,39 @@ flutter run
 
 ```
 lib/
- ├── core/                  
- │   ├── constants/         
- │   ├── extensions/        
- │   ├── logger/            
- │   ├── utils/             
- │   ├── widgets/           
+ ├── main.dart                  # Entry point
  │
- ├── config/                
- │   ├── localization/      # intl, arb files, delegates, etc.
- │   ├── routes/            
- │   ├── theme/             
+ ├── app/                       # App-level wiring
+ │   ├── app.dart               # Root MaterialApp.router widget
+ │   ├── app_bootstrap.dart     # Async init (Hive, secure storage, ...)
+ │   └── init/                  # System chrome, localization, core init
  │
- ├── features/auth/         
- │   ├── data/              
- │   │   ├── models/        
- │   │   ├── repositories/  
- │   │   ├── services/      # AppAuthService for Keycloak
- │   ├── domain/            
- │   ├── presentation/      
+ ├── core/                      # Cross-cutting concerns (framework-agnostic)
+ │   ├── config/                # Environment & app config
+ │   ├── constants/
+ │   ├── errors/                # Exceptions & error handling
+ │   ├── extensions/
+ │   ├── logging/
+ │   ├── network/               # Dio client & interceptors
+ │   ├── resources/             # UseCase base class, etc.
+ │   ├── services/              # Localization, toast, ... services
+ │   ├── storage/               # Hive & secure storage
+ │   └── utils/                 # Mixins, validators, workers, helpers
  │
- ├── features/...           # Other feature modules
+ ├── features/                  # Feature modules (Clean Architecture)
+ │   └── auth/
+ │       ├── data/              # Models, repositories, services (AppAuth/Keycloak)
+ │       ├── domain/            # Entities, repository contracts, use cases
+ │       └── presentation/      # Pages, widgets, providers
  │
- ├── product/               
- │   ├── init/              
- │   ├── mixins/            
- │   ├── utility/           
- │   ├── widgets/           
- │       ├── buttons/       
- │       ├── dialogs/       
- │       ├── forms/         
- │       ├── toast.dart     
- │       ├── loading_indicator.dart 
+ ├── presentation/              # Shared UI layer
+ │   ├── router/                # GoRouter configuration & routes
+ │   ├── theme/                 # Theme, colors, text styles, widget themes
+ │   ├── mixins/
+ │   └── widgets/               # Reusable widgets (buttons, dialogs, fields, ...)
+ │
+ ├── l10n/                      # Source .arb translation files
+ └── src/generated/             # Generated localization output
 ```
 
 ---
@@ -126,15 +127,19 @@ lib/
 | Package | Description |
 |--------|-------------|
 | **Authentication** | |
-| `app_auth` | OAuth2/OIDC authentication with Keycloak |
+| `flutter_appauth` | OAuth2/OIDC authentication with Keycloak |
+| `flutter_secure_storage` | Secure token storage |
+| **Networking** | |
+| `dio` | HTTP client with interceptors |
+| `connectivity_plus` | Network connectivity status |
 | **Local Storage** | |
-| `hive`, `hive_flutter` | Lightweight local database |
+| `hive_flutter` | Lightweight local database |
 | **Modeling & Serialization** | |
-| `freezed`, `json_serializable`, `hive_generator`, `build_runner` | Type-safe models with Hive integration |
+| `freezed`, `json_serializable`, `build_runner` | Type-safe, immutable models & codegen |
 | **State Management** | |
-| `flutter_riverpod` | Scalable state management |
+| `hooks_riverpod` (Riverpod 3) | Scalable, reactive state management |
 | **Localization** | |
-| `flutter_localizations`, `intl` | Flutter native localization |
+| `flutter_localizations`, `intl`, `easy_localization` | Localization support |
 | **Routing** | |
 | `go_router` | Declarative navigation |
 | **UI Utilities** | |
@@ -142,6 +147,8 @@ lib/
 | `skeletonizer` | Loading placeholders |
 | `google_fonts` | Font integration |
 | `lottie` | Animations |
+| `cached_network_image`, `flutter_svg` | Image rendering |
+| `adaptive_theme`, `responsive_framework` | Theming & responsiveness |
 
 ---
 
@@ -150,7 +157,7 @@ lib/
 ✅ Explore and understand the **Clean Architecture** structure  
 ✅ Replace sample features with your own modules  
 ✅ Set up and secure your **Keycloak backend**  
-✅ Add more languages with `.arb` files under `lib/config/localization`  
+✅ Add more languages with `.arb` files under `lib/l10n`  
 ✅ Build awesome features on top of this solid base 🎯  
 
 Happy Coding! 🚀
