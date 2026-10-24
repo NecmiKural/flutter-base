@@ -1,5 +1,4 @@
-
-# 🚀 Getting Started - Custom Flutter App Template
+# Getting Started - Custom Flutter App Template
 
 Welcome to **Custom Flutter App Template** – a modern Flutter starter project built with a scalable architecture and designed for real-world apps.
 
@@ -7,44 +6,44 @@ This template follows **Clean Architecture**, utilizes **Riverpod 3** (via `hook
 
 ---
 
-## 📌 Key Features
+## Key Features
 
-✅ **Clean Architecture**  
+**Clean Architecture**
 - Follows domain-driven design principles.  
 - Separates concerns into domain, data, and presentation layers.  
 
-✅ **Authentication**  
+**Authentication**
 - Keycloak integration using AppAuth.  
 - Secure sign-in and token management.  
 
-✅ **Localization**  
+**Localization**
 - Uses Flutter’s built-in `intl` and `flutter_localizations`.  
 - Centralized `l10n.yaml` and `arb` files for easy language management.  
 
-✅ **State Management with Riverpod 3**  
+**State Management with Riverpod 3**
 - Scalable, modular, and reactive state handling via `hooks_riverpod`.  
 
-✅ **Persistent Storage**  
+**Persistent Storage**
 - Local storage using Hive.  
 - Integrated with Freezed models for type safety and serialization.  
 
-✅ **Freezed for Models**  
+**Freezed for Models**
 - Powerful code generation for model classes.  
 - Works seamlessly with Hive for persistent, versioned models.  
 
-✅ **Reusable UI Components**  
+**Reusable UI Components**
 - Buttons, input fields, dialogs, and toast notifications.  
 
-✅ **Routing**  
+**Routing**
 - Declarative navigation using GoRouter.  
 
-✅ **Custom Utilities**  
+**Custom Utilities**
 - Useful extensions for `BuildContext`, media queries, snackbars, etc.  
 - Mixins for forms, state management, and more.  
 
 ---
 
-## 🛠 Requirements
+## Requirements
 
 Before getting started, ensure you have the following installed:
 
@@ -54,34 +53,34 @@ Before getting started, ensure you have the following installed:
 
 ---
 
-## 🚀 Installation & Setup
+## Installation & Setup
 
-### 1️⃣ Clone the Repository
+### 1. Clone the Repository
 ```bash
 git clone https://github.com/NecmiKural/flutter-base.git
 cd flutter-base
 ```
 
-### 2️⃣ Install Dependencies
+### 2. Install Dependencies
 ```bash
 flutter pub get
 ```
 
-### 3️⃣ Setup Keycloak & AppAuth
+### 3. Setup Keycloak & AppAuth
 
 1. Deploy or configure your Keycloak server.  
 2. Create a client with `openid-connect` type.  
 3. Configure redirect URI and credentials.  
 4. Add Keycloak URLs and credentials to your environment config.  
 
-### 4️⃣ Run the Project
+### 4. Run the Project
 ```bash
 flutter run
 ```
 
 ---
 
-## 📂 Folder Structure
+## Folder Structure
 
 ```
 lib/
@@ -122,7 +121,7 @@ lib/
 
 ---
 
-## 📦 Dependencies Used
+## Dependencies Used
 
 | Package | Description |
 |--------|-------------|
@@ -152,12 +151,12 @@ lib/
 
 ---
 
-## 🎯 Next Steps
+## Next Steps
 
-✅ Explore and understand the **Clean Architecture** structure  
-✅ Replace sample features with your own modules  
-✅ Set up and secure your **Keycloak backend**  
-✅ Add more languages with `.arb` files under `lib/l10n`  
-✅ Build awesome features on top of this solid base 🎯  
+- Explore and understand the **Clean Architecture** structure
+- Replace sample features with your own modules
+- Set up and secure your **Keycloak backend**
+- Add more languages with `.arb` files under `lib/l10n`
+- Build awesome features on top of this solid base
 
-Happy Coding! 🚀
+Happy Coding!
