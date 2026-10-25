@@ -1,6 +1,6 @@
-# Getting Started - Custom Flutter App Template
+# flutter-base
 
-Welcome to **Custom Flutter App Template** – a modern Flutter starter project built with a scalable architecture and designed for real-world apps.
+A Flutter starter project with a layered architecture: Clean Architecture, Riverpod, GoRouter, Hive and Freezed, Keycloak sign-in through AppAuth, and Flutter's built-in localisation.
 
 This template follows **Clean Architecture**, utilizes **Riverpod 3** (via `hooks_riverpod`) for state management, integrates **Keycloak authentication via AppAuth**, and supports **Flutter's native localization system**.
 
@@ -28,7 +28,7 @@ This template follows **Clean Architecture**, utilizes **Riverpod 3** (via `hook
 - Integrated with Freezed models for type safety and serialization.  
 
 **Freezed for Models**
-- Powerful code generation for model classes.  
+- Code generation for model classes.  
 - Works seamlessly with Hive for persistent, versioned models.  
 
 **Reusable UI Components**
